@@ -7,23 +7,24 @@ set history=1000
 set hlsearch
 set incsearch
 set ic
+set smartindent
+set autoindent
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 set nowrap
 set number
 
-" indentation stuff
+"indentation stuff
 filetype plugin indent on
-" show existing tab with 4 spaces width
+"show existing tab with 4 spaces width
 set tabstop=4
-" when indenting with '>', use 4 spaces width
+"when indenting with '>', use 4 spaces width
 set shiftwidth=4
-" On pressing tab, insert 4 spaces
+"On pressing tab, insert 4 spaces
 set expandtab
 
 "keybindings ===========
 "This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
-
 
 "move lines up and down
 nnoremap <A-j> :m .+1<CR>==
@@ -37,7 +38,10 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 map <C-Tab> :bnext<CR>
 map <C-S-Tab> :bprevious<CR>
 
-" Function key maps
+"classic Ctrl-S for save
+map <C-s> :w<CR>
+
+"Function key maps
 " <F1> is help, dont remap it
 " <F2> shows diff since last save
 nnoremap <F2> :w ! diff % -<CR>
@@ -51,8 +55,8 @@ set wildcharm=<C-Z>
 nnoremap <F10> :b <C-Z>
 
 "plugins ===============
-call plug#begin('~/vimfiles/plugged')
+"call plug#begin('~/vimfiles/plugged')
 
-Plug 'fatih/vim-go'
+"Plug 'fatih/vim-go'
 
-call plug#end()
+"call plug#end()
