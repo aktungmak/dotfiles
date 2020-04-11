@@ -12,7 +12,8 @@ set hlsearch
 set incsearch
 set laststatus=2
 set nrformats-=octal
-set nu " line numbering
+set noswapfile
+set number
 set path+=**
 set ruler
 set scrolloff=1
