@@ -9,6 +9,7 @@ set encoding=utf-8
 set formatoptions+=j " Delete comment character when joining commented lines
 set history=200
 set hlsearch
+set ignorecase
 set incsearch
 set laststatus=2
 set nrformats-=octal
@@ -17,6 +18,7 @@ set number
 set path+=**
 set ruler
 set scrolloff=1
+set smartcase
 set smarttab
 set wildignore+=**/_build/**
 set wildmenu
@@ -49,10 +51,10 @@ nnoremap <leader>w  :w<cr>
 nnoremap <leader>fc :find <C-r><C-w>.java<cr>
 
 " highlight unwanted whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-highlight Tabbies ctermbg=gray guibg=gray
-match Tabbies /\t/
+autocmd BufWinEnter * syntax match TrailingWhitespace "\s\+$"
+highlight TrailingWhitespace ctermbg=Red guibg=Red
+autocmd BufWinEnter * syntax match Tabbies "\t"
+highlight Tabbies ctermbg=DarkGreen guibg=DarkGreen
 
 "move lines up and down
 nnoremap <A-j> :m .+1<CR>==
