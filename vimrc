@@ -7,9 +7,10 @@ set cursorline
 set display+=lastline
 set encoding=utf-8
 set formatoptions+=j " Delete comment character when joining commented lines
+set grepformat=%f:%l:%c:%m
+set grepprg=ag\ --vimgrep\ $*
 set history=200
 set hlsearch
-set ignorecase
 set incsearch
 set laststatus=2
 set nrformats-=octal
@@ -44,11 +45,23 @@ let g:netrw_browse_split=4  " open in prior window
 let g:netrw_altv=1          " open splits to the right
 let g:netrw_liststyle=3     " tree view
 
+"switch buffers with Ctrl-Tab
+map <C-Tab> :bnext<CR>
+map <C-S-Tab> :bprevious<CR>
+
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
 nnoremap <leader>bb :buffers<cr>:buffer<space>
 nnoremap <leader>bd :bdelete<cr>
 nnoremap <leader>ff :find<space>
+nnoremap <leader>gg :grep<space>
 nnoremap <leader>w  :w<cr>
 nnoremap <leader>fc :find <C-r><C-w>.java<cr>
+"delete buffer without losing the split
+nnoremap <C-c> :bp\|bd #<CR>
+
+vnoremap <leader>j :!json_pp<cr>
+vnoremap <leader>x :!xmllint --format --<cr>
 
 " highlight unwanted whitespace
 autocmd BufWinEnter * syntax match TrailingWhitespace "\s\+$"
@@ -56,23 +69,6 @@ highlight TrailingWhitespace ctermbg=Red guibg=Red
 autocmd BufWinEnter * syntax match Tabbies "\t"
 highlight Tabbies ctermbg=DarkGreen guibg=DarkGreen
 
-"move lines up and down
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
-
-"switch buffers with Ctrl-Tab
-map <C-Tab> :bnext<CR>
-map <C-S-Tab> :bprevious<CR>
-
-"classic Ctrl-S for save
-map <C-s> :w<CR>
-
-"delete buffer without losing the split
-nnoremap <C-c> :bp\|bd #<CR>
 
 "Function key maps
 " <F1> is help, dont remap it
