@@ -56,8 +56,9 @@ nnoremap <leader>bb :buffers<cr>:buffer<space>
 nnoremap <leader>bd :bdelete<cr>
 nnoremap <leader>ff :find<space>
 nnoremap <leader>gg :grep<space>
+nnoremap <leader>gw :grep <C-r><C-w><cr>
+nnoremap <leader>fw :find <C-r><C-w>
 nnoremap <leader>w  :w<cr>
-nnoremap <leader>fc :find <C-r><C-w>.java<cr>
 "delete buffer without losing the split
 nnoremap <C-c> :bp\|bd #<CR>
 
