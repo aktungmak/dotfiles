@@ -28,6 +28,7 @@ set wildmode=longest:full
 autocmd FileType erlang setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType java setlocal expandtab shiftwidth=4 softtabstop=4
+autocmd FileType xml setlocal expandtab shiftwidth=2 softtabstop=2
 
 syntax on
 filetype indent plugin on
@@ -61,7 +62,7 @@ nnoremap <leader>fc :find <C-r><C-w>.java<cr>
 nnoremap <C-c> :bp\|bd #<CR>
 
 vnoremap <leader>j :!json_pp<cr>
-vnoremap <leader>x :!xmllint --format --<cr>
+vnoremap <leader>x :!xmllint --format -<cr>
 
 " highlight unwanted whitespace
 autocmd BufWinEnter * syntax match TrailingWhitespace "\s\+$"
