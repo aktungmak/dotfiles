@@ -25,10 +25,30 @@ set wildignore+=**/_build/**
 set wildmenu
 set wildmode=longest:full
 
-autocmd FileType erlang setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
-autocmd FileType java setlocal expandtab shiftwidth=4 softtabstop=4
-autocmd FileType xml setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType erlang
+\ setlocal
+\   expandtab
+\   shiftwidth=2
+\   softtabstop=2
+autocmd FileType python
+\ setlocal
+\   expandtab
+\   shiftwidth=4
+\   softtabstop=4
+\   foldmethod=indent
+\|normal zR
+autocmd FileType java
+\ setlocal
+\   expandtab
+\   shiftwidth=4
+\   softtabstop=4
+autocmd FileType xml
+\ setlocal
+\   expandtab
+\   shiftwidth=2
+\   softtabstop=2
+\   foldmethod=indent
+\|normal zR
 
 syntax on
 filetype indent plugin on
@@ -50,6 +70,7 @@ let g:netrw_liststyle=3     " tree view
 map <C-Tab> :bnext<CR>
 map <C-S-Tab> :bprevious<CR>
 
+nnoremap <space> za
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
 nnoremap <leader>bb :buffers<cr>:buffer<space>
@@ -70,7 +91,6 @@ autocmd BufWinEnter * syntax match TrailingWhitespace "\s\+$"
 highlight TrailingWhitespace ctermbg=Red guibg=Red
 autocmd BufWinEnter * syntax match Tabbies "\t"
 highlight Tabbies ctermbg=DarkGreen guibg=DarkGreen
-
 
 "Function key maps
 " <F1> is help, dont remap it
