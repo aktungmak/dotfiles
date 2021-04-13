@@ -24,31 +24,27 @@ set smarttab
 set wildignore+=**/_build/**
 set wildmenu
 set wildmode=longest:full
+set expandtab
+set shiftwidth=2
+set softtabstop=2
 
 autocmd FileType erlang
 \ setlocal
-\   expandtab
-\   shiftwidth=2
-\   softtabstop=2
 autocmd FileType python
 \ setlocal
-\   expandtab
 \   shiftwidth=4
 \   softtabstop=4
-\   foldmethod=indent
-\|normal zR
 autocmd FileType java
 \ setlocal
-\   expandtab
 \   shiftwidth=4
 \   softtabstop=4
 autocmd FileType xml
 \ setlocal
-\   expandtab
-\   shiftwidth=2
 \   softtabstop=2
 \   foldmethod=indent
 \|normal zR
+
+autocmd BufWritePre *.py execute ':Black'
 
 syntax on
 filetype indent plugin on
@@ -66,16 +62,13 @@ let g:netrw_browse_split=4  " open in prior window
 let g:netrw_altv=1          " open splits to the right
 let g:netrw_liststyle=3     " tree view
 
-"switch buffers with Ctrl-Tab
-map <C-Tab> :bnext<CR>
-map <C-S-Tab> :bprevious<CR>
 
 nnoremap <space> za
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
 nnoremap <leader>bb :buffers<cr>:buffer<space>
 nnoremap <leader>bd :bdelete<cr>
-nnoremap <leader>ff :find<space>
+nnoremap <leader>ff :find<space>./
 nnoremap <leader>gg :grep<space>
 nnoremap <leader>gw :grep <C-r><C-w><cr>
 nnoremap <leader>fw :find <C-r><C-w>
@@ -96,3 +89,5 @@ highlight Tabbies ctermbg=DarkGreen guibg=DarkGreen
 " <F1> is help, dont remap it
 " <F2> shows diff since last save
 nnoremap <F2> :w ! diff % -<CR>
+map <F3> :bprevious<CR>
+map <F4> :bnext<CR>
