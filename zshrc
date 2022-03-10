@@ -16,7 +16,7 @@ setopt PUSHD_SILENT
 autoload -Uz compinit; compinit
 autoload bashcompinit && bashcompinit
 
-complete -C '/usr/local/bin/aws_completer' aws
+complete -C '/Library/Frameworks/Python.framework/Versions/3.9/bin/aws_completer' aws
 
 alias d='dirs -v'
 for index ({1..9}) alias "d$index"="cd +${index}"; unset index
@@ -42,6 +42,7 @@ alias gb="git checkout -b"
 alias gcl="git clean -i"
 alias gt="git log --oneline --decorate --tags --no-walk"
 alias gp="git push -u origin HEAD"
+alias gclb='git branch --merged | grep -i -v -E "master|develop"| xargs git branch -d'
 
 alias tree="tree -I '__pycache__|*.pyc|venv'"
 
@@ -60,3 +61,4 @@ am () {
     eval $(aws-login-tool login $(aws-login-tool list-roles -u $USER -m | peco) -u $USER)
 }
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin/:$PATH"

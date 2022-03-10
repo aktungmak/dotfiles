@@ -10,3 +10,6 @@ ln -s ${BASEDIR}/bash_profile ~/.bash_profile
 
 # zsh
 ln -s ${BASEDIR}/zshrc ~/.zshrc
+
+# git
+ln -s ${BASEDIR}/gitconfig ~/.gitconfig

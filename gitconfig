@@ -1,0 +1,7 @@
+[user]
+	email = aktungmak@gmail.com
+	name = Joshua Green
+[diff]
+	noprefix = true
+[push]
+	default = current
